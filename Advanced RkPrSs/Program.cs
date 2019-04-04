@@ -144,25 +144,19 @@ namespace Advanced_RkPrSs
                                 {
                                     Console.Write("\n{0} smashes {0} but nothing really happens ", rock);
                                     draw = draw + 1;
-                                    PrintColourMessage(ConsoleColor.Yellow, "Draw!");
-                                    Console.ReadKey();
-                                    continue;
+                                    resultFunc(ConsoleColor.Yellow, "Draw!");
                                 }
                                 if (ComputerAttempt == 2)
                                 {
                                     Console.Write("\n{0} covers {1} ", paper, rock);
                                     lose = lose + 1;
-                                    PrintColourMessage(ConsoleColor.Red, "Lose!");
-                                    Console.ReadKey();
-                                    continue;
+                                    resultFunc(ConsoleColor.Red, "Lose!");
                                 }
                                 if (ComputerAttempt == 3)
                                 {
                                     Console.Write("\n{0} breaks {1} ", rock, scissors);
                                     win = win + 1;
-                                    PrintColourMessage(ConsoleColor.Green, "Win!");
-                                    Console.ReadKey();
-                                    continue;
+                                    resultFunc(ConsoleColor.Green, "Win!");
                                 }
 
                             }
@@ -172,25 +166,19 @@ namespace Advanced_RkPrSs
                                 {
                                     Console.Write("\n{0} covers {1} ", paper, rock);
                                     win = win + 1;
-                                    PrintColourMessage(ConsoleColor.Green, "Win!");
-                                    Console.ReadKey();
-                                    continue;
+                                    resultFunc(ConsoleColor.Green, "Win!");
                                 }
                                 if (ComputerAttempt == 2)
                                 {
                                     Console.Write("\n{0} rubs against {0} ", paper);
                                     draw = draw + 1;
-                                    PrintColourMessage(ConsoleColor.Yellow, "Draw!");
-                                    Console.ReadKey();
-                                    continue;
+                                    resultFunc(ConsoleColor.Yellow, "Draw!");
                                 }
                                 if (ComputerAttempt == 3)
                                 {
                                     Console.Write("\n{0} cut {1} ", scissors, paper);
                                     lose = lose + 1;
-                                    PrintColourMessage(ConsoleColor.Red, "Lose!");
-                                    Console.ReadKey();
-                                    continue;
+                                    resultFunc(ConsoleColor.Red, "Lose!");
                                 }
                             }
                             if (intMainGame == 3)
@@ -199,25 +187,19 @@ namespace Advanced_RkPrSs
                                 {
                                     Console.Write("\n{0} breaks {1} ", rock, scissors);
                                     lose = lose + 1;
-                                    PrintColourMessage(ConsoleColor.Red, "Lose!");
-                                    Console.ReadKey();
-                                    continue;
+                                    resultFunc(ConsoleColor.Red, "Lose!");
                                 }
                                 if (ComputerAttempt == 2)
                                 {
                                     Console.Write("\n{0} cut {1} ", scissors, paper);
                                     win = win + 1;
-                                    PrintColourMessage(ConsoleColor.Green, "Win!");
-                                    Console.ReadKey();
-                                    continue;
+                                    resultFunc(ConsoleColor.Green, "Win!");
                                 }
                                 if (ComputerAttempt == 3)
                                 {
                                     Console.Write("\n{0} just rub together creating sparks ", scissors);
                                     draw = draw + 1;
-                                    PrintColourMessage(ConsoleColor.Yellow, "Draw!");
-                                    Console.ReadKey();
-                                    continue;
+                                    resultFunc(ConsoleColor.Yellow, "Draw!");
                                 }
                             }      
                     }
@@ -272,6 +254,9 @@ namespace Advanced_RkPrSs
                     }
                     if (userMenuNumber == 3)
                     {
+                        win = 0;
+                        draw = 0;
+                        lose = 0;
                         break;
                     }
                     if (userMenuNumber == 4)
@@ -299,6 +284,13 @@ namespace Advanced_RkPrSs
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("DEBUG: " + debugMessage);
             Console.ResetColor();
+        }
+        static void resultFunc(ConsoleColor color, string message)
+        {
+            Console.ForegroundColor = color;
+            Console.Write(message);
+            Console.ResetColor();
+            Console.ReadKey();
         }
 
 
